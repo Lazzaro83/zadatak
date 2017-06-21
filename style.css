@@ -10,12 +10,24 @@ span{
 	top: 95px;
 	font-family: Verdana, Geneva, sans-serif;
 }
+form{
+	position: absolute;
+	top: 40px;
+	left: 550px;
+	width: 300px;
+}
+input{
+	width: 200px;
+}
 
 .container{
 	
 	position: relative;
     margin: 10px;
-    padding: 200px;
+    padding-top: 100px;
+	padding-right: 200px;
+	padding-bottom: 200px;
+	padding-left: 250px;
 }
 
 .content{

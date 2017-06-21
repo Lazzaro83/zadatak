@@ -16,11 +16,10 @@ function fetchJSONFile(path, callback) {
 // this requests the file and executes a callback with the parsed result once
 //   it is available
 fetchJSONFile('data.json', function(data){
-    // do something with your data
-    for(var i = 0; i<6; i++){
+    // parsed JSON data are being passed through for loop in order to populate appropriate parts of HTML 
+    for(var i = 0; i<data.cars.length; i++){
     	document.getElementsByTagName("img")[i].src = data.cars[i].image;
     	document.getElementsByTagName("span")[i].innerHTML = data.cars[i].name;
     }
-    //document.getElementById('demo').src = data.cars[2].image;
-    console.log(data.cars[2].image);
+    //console.log(data.cars[2].image);
 });
