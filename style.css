@@ -4,17 +4,32 @@ img {
 	padding-left: 1px;
 	object-fit: contain;
 }
+/*style of enlarged img*/
+.enlarged{
+	object-fit: contain;
+	object-position: 10px 10px;
+	height: 400px;
+	width: 600px;
+}
 span{
 	position: absolute;
 	left: 30px;
 	top: 95px;
 	font-family: Verdana, Geneva, sans-serif;
 }
-form{
+.typing{
 	position: absolute;
 	top: 40px;
 	left: 550px;
-	width: 300px;
+	width: 240px;
+	border: solid 1px;
+	border-radius: 3px;
+	padding: 0;
+}
+button{
+	width: 30px;
+	background-color: #FFF;
+	padding: 0;
 }
 input{
 	width: 200px;
@@ -23,11 +38,11 @@ input{
 .container{
 	
 	position: relative;
-    margin: 10px;
-    padding-top: 100px;
+    margin-top: 80px;
+    padding-top: 50px;
 	padding-right: 200px;
 	padding-bottom: 200px;
-	padding-left: 250px;
+	padding-left: 300px;
 }
 
 .content{
@@ -76,7 +91,26 @@ input{
 	border-color: #FFF;
 	float:left;
 }
-
-
+/*this class controls apperance of selected car*/
+.expand{
+	position: absolute;
+	top:0px;
+	left:300px;
+	height:370px;
+	width: 740px;
+	border-width: 3px;
+	border-style: solid;
+	border-color: #f44268;
+	float:left;
+	background-color: #FFF;
+	z-index: 1;
+}
+.smallButton{
+	position: absolute;
+	top: 0;
+	right:0;
+	color:#FFF;
+	background-color: #000;
+}
 
 
