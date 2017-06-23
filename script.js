@@ -70,25 +70,3 @@ function search(){
     }
     document.getElementById("text-box").value = "";    
 }
-//eventlistener for mouseover event on picture of the car
-/*var pictures = document.getElementsByTagName("div");
-    var saveCarClass;
-    var bool;
-    for(var i = 0; i < pictures.length; i++){
-        pictures[i].onmouseover = function(){
-            saveCarClass = this.className;
-            bool = true;
-            if(this.className != "expand" && bool == true){
-            this.className = "darkPicture";
-            bool = false;
-            };
-        pictures[i].onmouseout = function (){
-            if(this.className == "darkPicture" && bool == false){
-            this.className = "saveCarClass";
-            bool = true;
-            }
-        console.log("Izasao sam");
-        };
-    }
-}
-*/
