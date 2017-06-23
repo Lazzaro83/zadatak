@@ -19,6 +19,8 @@ fetchJSONFile('data.json', function(data){
     for(var i = 0; i<data.cars.length; i++){
     	document.getElementsByTagName("img")[i].src = data.cars[i].image;
     	document.getElementsByTagName("span")[i].innerHTML = data.cars[i].name;
+        document.getElementsByTagName("h5")[i].innerHTML = "Speed: " + data.cars[i].speed;
+        document.getElementsByTagName("h6")[i].innerHTML = data.cars[i].description;
     }
 })
 
@@ -26,9 +28,9 @@ fetchJSONFile('data.json', function(data){
 function mySearch(event){
     if(event.which == 13 || event.keyCode == 13){
         search();
-        //return false;
     }
 }
+
 
 
 // function takes entered word and displays the result
@@ -42,7 +44,6 @@ function search(){
         var nodeArray = [];
         for (var i = 0; i < nodeList.length; ++i) {
             nodeArray[i] = nodeList[i];
-            //console.log(nodeArray[i]);
             if(carValue == nodeArray[i].innerHTML){
                 console.log("Pronasao sam!");
                 //handeling hits in querries
@@ -50,7 +51,6 @@ function search(){
                 var parentDiv = node.parentNode;
                 var saveImgClass = parentDiv.firstChild.className;
                 parentDiv.firstChild.className += "enlarged";
-                console.log(parentDiv.firstChild);
                 //changes appearance of the returned element
                 var saveClass = parentDiv.className;
                 parentDiv.className = "expand";
@@ -58,15 +58,37 @@ function search(){
                 var button = document.createElement("button");
                 button.innerHTML = "x";
                 button.className = "smallButton";
+                parentDiv.appendChild(button);
                 button.onclick = function turnOff(){
                     parentDiv.className = saveClass;
                     parentDiv.firstChild.className = saveImgClass;
                     button.parentNode.removeChild(button);
                 };
-                parentDiv.appendChild(button);
+                
             } 
         }
-    
     }
-    document.getElementById("text-box").value = "";
+    document.getElementById("text-box").value = "";    
 }
+//eventlistener for mouseover event on picture of the car
+/*var pictures = document.getElementsByTagName("div");
+    var saveCarClass;
+    var bool;
+    for(var i = 0; i < pictures.length; i++){
+        pictures[i].onmouseover = function(){
+            saveCarClass = this.className;
+            bool = true;
+            if(this.className != "expand" && bool == true){
+            this.className = "darkPicture";
+            bool = false;
+            };
+        pictures[i].onmouseout = function (){
+            if(this.className == "darkPicture" && bool == false){
+            this.className = "saveCarClass";
+            bool = true;
+            }
+        console.log("Izasao sam");
+        };
+    }
+}
+*/
