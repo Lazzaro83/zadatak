@@ -11,6 +11,7 @@ function fetchJSONFile(path, callback) {
     };
     httpRequest.open('GET', path);
     httpRequest.send(); 
+    divideCanvas();
 }
 
 // this requests the file and executes a callback with the parsed result once it is available
@@ -23,6 +24,28 @@ fetchJSONFile('data.json', function(data){
         document.getElementsByTagName("h6")[i].innerHTML = data.cars[i].description;
     }
 })
+//this function creates 3 rows and 10 columns on canvas 
+
+
+function divideCanvas(){
+    var canvasWidth = 750;
+    var canvasHeight = 300;
+    var c = document.getElementById("myCanvas");
+    //drawing rows
+    var ctx=c.getContext("2d");
+    ctx.strokeStyle = "#000000";    
+    ctx.strokeRect(-0.5, 48.5, 301, 56);
+    //drawing columns
+    var columns = c.getContext("2d");
+    columns.beginPath();
+    for(var i = 30.5; i<300; i+=30.5){
+        columns.moveTo(i, 0);
+        columns.lineTo(i, 150);
+        columns.lineWidth = 1;
+        columns.strokeStyle = "#a9acb2";
+        columns.stroke();
+    };
+}
 
 // this function enables the user to press Enter on his keybord in order ot execute the search
 function mySearch(event){
@@ -69,4 +92,40 @@ function search(){
         }
     }
     document.getElementById("text-box").value = "";    
+}
+//eventlistener for mouseclick event on picture of the car
+var pictures = document.getElementsByTagName("div");
+var first = document.getElementById("first");
+var second = document.getElementById("second");
+var third = document.getElementById("third");
+var racingCars = document.getElementsByName("racingCar");
+var chosenItem;
+var clonedItem;
+//this for loop goes through the divs of car pictures, takes firstChild element of clicked divs, clones it and adds it to apropriate place
+// if else conditions are controling where should next click be cloned
+for(var i = 0; i < pictures.length; i++){
+    pictures[i].addEventListener("click", function(e){
+        if(first.childElementCount < 1){
+            chosenItem = e.currentTarget.firstChild;
+            clonedItem = chosenItem.cloneNode(true);
+            first.appendChild(clonedItem);
+            } else if(first.hasChildNodes() && second.firstChild == null){
+                chosenItem = e.currentTarget.firstChild;
+                clonedItem = chosenItem.cloneNode(true);
+                second.appendChild(clonedItem);
+            } else if(second.hasChildNodes() && third.firstChild == null){
+                chosenItem = e.currentTarget.firstChild;
+                clonedItem = chosenItem.cloneNode(true);
+                third.appendChild(clonedItem);
+            }
+    } );
+}
+  //this for loop serves for click events to remove car from race if user has chosen wrong car
+
+for(var i = 0; i < racingCars.length; i++){
+    racingCars[i].addEventListener("click", function(e){
+        var chosenCar = e.currentTarget;
+        chosenCar.removeChild(chosenCar.childNodes[0]);
+        console.log("Umaknuto");
+    })
 }
