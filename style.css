@@ -249,7 +249,7 @@ div.content4:hover h5 {
 h4{
 	display: inline;
 	color: #969490;
-	margin-left: 50px;	
+	margin-left: 45px;	
 }
 
 #canvasWrap{
@@ -260,15 +260,11 @@ h4{
 	margin-top: 30px;
 	border: solid 2px black;
 	border-radius: 5px;
+
 }
 
-canvas{
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	
-}
-.selectedCar1{
+
+#first{
 	position: absolute;
 	top:10px;
 	left:0;
@@ -278,11 +274,11 @@ canvas{
 	border-radius: 5px;
 	border: solid 1px black;
 }
-.selectedCar1 img{
+#first img{
 	width: 100%;
 	height: 100%;
 }
-.selectedCar2{
+#second{
 	position: absolute;
 	top:110px;
 	left:0;
@@ -292,11 +288,11 @@ canvas{
 	border-radius: 5px;
 	border: solid 1px black;
 }
-.selectedCar2 img{
+#second img{
 	width: 100%;
 	height: 100%;
 }
-.selectedCar3{
+#third{
 	position: absolute;
 	top:220px;
 	left:0;
@@ -306,24 +302,49 @@ canvas{
 	border-radius: 5px;
 	border: solid 1px black;
 }
-.selectedCar3 img{
+#third img{
 	width: 100%;
 	height: 100%;
+}
+/*style for trafic sign and trafic light*/
+
+#secondCanvasWrap{
+	margin-left: 290px;
+    margin-top: 35px;
+    z-index: 1;
+    position: relative;
+	width: 750px;
+	height: 250px;
+	margin-left: 290px;
+	margin-top: 30px;
+	border-radius: 5px;
+}
+
+/*style for speed and for START button*/
+#speedLimit1{
+	position: absolute;
+	top: 55px;
+	left: 325px;
+}
+#speedLimit2{
+	position: absolute;
+	top: 55px;
+	left: 670px;
 }
 .end{
 	position: relative;
     width: 760px;
-    height: 80px;
-    margin-top: 35px;
-    padding-top: 50px;
+    height: 0;
     margin-left: 290px;
+    z-index: 2;
 }
 #speed-box{
 	position: absolute;
-	top: 0;
-	right: 150px;
+	top: -70px;
+	right:85px;
 	height: 30px;
-	width:180px;
+	width:145px;
+	border-radius: 5px;
 }
 .start{
 	width: 80px;
@@ -331,6 +352,7 @@ canvas{
 	padding: 0;
 	height: 35px;
 	position: absolute;
-	top:0;
+	top:-70px;
 	right: 0;
+	border-radius: 5px;
 }

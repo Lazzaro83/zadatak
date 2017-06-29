@@ -19,18 +19,32 @@
 		<div class="content3"><img src=""><span></span><h5></h5><h6></h6></div>
 		<div class="content4"></div>
 	</section>
-	<article class="markations"><h4>1xN</h4><h4>2xN</h4><h4>3xN</h4><h4>4xN</h4><h4>5xN</h4><h4>6xN</h4><h4>7xN</h4><h4>8xN</h4><h4>9xN</h4>
+	<article class="markations">
+		<h4>1xN</h4>
+		<h4>2xN</h4>
+		<h4>3xN</h4>
+		<h4>4xN</h4>
+		<h4>5xN</h4>
+		<h4>6xN</h4>
+		<h4>7xN</h4>
+		<h4>8xN</h4>
+		<h4>9xN</h4>
 	</article>
 	<article id="canvasWrap">
-	<canvas id="myCanvas"></canvas>
-	<article class="selectedCar1" id="first" name="racingCar"></article>
-	<article class="selectedCar2" id="second" name="racingCar"></article>
-	<article class="selectedCar3" id="third" name="racingCar"></article>
+		<canvas id="myCanvas"></canvas>
+		<article class="selectedCar1" id="first" name="racingCar"></article>
+		<article class="selectedCar2" id="second" name="racingCar"></article>
+		<article class="selectedCar3" id="third" name="racingCar"></article>
 	</article>
-	<article class="end">
-		<input type="text" id="speed-box" name="speed" placeholder="Number for speed of animation">
-		<button class="start">START!</button>
+	<article id="secondCanvasWrap">
+		<canvas id="mySecondCanvas"></canvas>
+		<span id="speedLimit1"></span>
+		<span id="speedLimit2"></span>
 	</article>
+	<footer class="end">
+		<input type="text" id="speed-box" name="speed" placeholder="Insert speed of animation">
+		<button class="start" onclick="startRace()">START!</button>	
+	</footer>
 
 
 
