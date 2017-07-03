@@ -270,7 +270,7 @@ h4{
 	left:0;
 	height: 50px;
 	width: 70px;
-	z-index: 2;
+	
 	border-radius: 5px;
 	border: solid 1px black;
 }
@@ -284,9 +284,10 @@ h4{
 	left:0;
 	height: 50px;
 	width: 70px;
-	z-index: 2;
+	
 	border-radius: 5px;
 	border: solid 1px black;
+	/*background-color: #FFD700; gold #D3D3D3 silver #cd7f32 bronze*/
 }
 #second img{
 	width: 100%;
@@ -298,7 +299,7 @@ h4{
 	left:0;
 	height: 50px;
 	width: 70px;
-	z-index: 2;
+	
 	border-radius: 5px;
 	border: solid 1px black;
 }
@@ -311,7 +312,7 @@ h4{
 #secondCanvasWrap{
 	margin-left: 290px;
     margin-top: 35px;
-    z-index: 1;
+    
     position: relative;
 	width: 750px;
 	height: 250px;
@@ -336,7 +337,7 @@ h4{
     width: 760px;
     height: 0;
     margin-left: 290px;
-    z-index: 2;
+    ;
 }
 #speed-box{
 	position: absolute;

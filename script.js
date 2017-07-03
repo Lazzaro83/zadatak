@@ -1,4 +1,4 @@
-// creating AJAX call for fetching data.json and parsing it as an javascript object
+// creating AJAX call for fetching data.json and parsing it 
 function fetchJSONFile(path, callback) {
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
@@ -35,8 +35,7 @@ fetchJSONFile('data.json', function(data){
     secondSpeedLimit = data.speed_limits[1].position;
     traficLights = data.traffic_lights[0].position;
     durationOfTraficLights = data.traffic_lights[0].duration;
-    //console.log(traficLights + " " + durationOfTraficLights);
-
+    
     document.getElementById("speedLimit1").innerHTML = data.speed_limits[0].speed;
     document.getElementById("speedLimit2").innerHTML = data.speed_limits[1].speed;
     divideCanvas(raceDistance, firstSpeedLimit, secondSpeedLimit, traficLights,);
@@ -73,7 +72,6 @@ function divideCanvas(x, y, z, q){
     var secondSign = z;
     var traficLites = q;
     var distanceUnit = c.width / dividedDistance;
-    console.log(distanceUnit*firstSign);
     // positioning speed limits at API apropriate places
     //lines of first speed limit
     ctx.beginPath();
@@ -181,7 +179,7 @@ function traficSigns(p, r){
         ctx3.lineTo(423, 0);
         ctx3.stroke();
     }
-    
+    //this controls green and red trafic lights
     setInterval(function(){
         bool == true ? first() : second();
     }, lightDuration)
@@ -276,42 +274,62 @@ for(var i = 0; i < racingCars.length; i++){
 }
 
 function startRace(){
-    console.log(carSpeeds);
     var speedOfAnimation = document.getElementById("speed-box").value;
-    if(speedOfAnimation == NaN || speedOfAnimation == ""){
+    if(isNaN(speedOfAnimation) || speedOfAnimation == ""){
         alert("You need to enter a number for animation speed!");
     } else{
         document.getElementById("speed-box").value = "";
         var speedOne = 0;
         var speedTwo = 0;
         var speedThree = 0;
-        setInterval(function(){
+        var firstCar = setInterval(function(){
             var one = document.getElementById("first");
             if (speedOne >= 680) {
-                clearInterval();
                 one.style.left = 680+"px";
+                clearInterval(firstCar);
+                findWinner(one);
             } else {
                 speedOne += parseInt(firstSpeed); 
                 one.style.left = speedOne +'px'; 
             }
+        }, speedOfAnimation);
+        var secondCar = setInterval(function(){
             var two = document.getElementById("second");
             if (speedTwo >= 680) {
-                clearInterval();
                 two.style.left = 680+"px";
+                clearInterval(secondCar);
+                findWinner(two);
             } else {
                 speedTwo += parseInt(secondSpeed); 
                 two.style.left = speedTwo +'px'; 
             }
+        }, speedOfAnimation);
+        var thirdCar = setInterval(function(){
             var three = document.getElementById("third");
             if (speedThree >= 680) {
-                clearInterval();
                 three.style.left = 680+"px";
+                clearInterval(thirdCar);
+                findWinner(three);
             } else {
                 speedThree += parseInt(thirdSpeed); 
                 three.style.left = speedThree +'px'; 
-        }
+            }
+        }, speedOfAnimation);
         
-    },speedOfAnimation)
     }
     
+    
+}
+// this variable and following function are controling winners of race and are associating appropriate colors
+var number = 0;
+function findWinner(arrived){
+    number++;
+    var arrivedCar = arrived;
+    if(number == 1){
+        arrivedCar.style.backgroundColor = "#FFD700";
+    } else if(number == 2){
+        arrivedCar.style.backgroundColor = "#D3D3D3";
+    } else if(number == 3){
+        arrivedCar.style.backgroundColor = "#cc6633";
+    }
 }
